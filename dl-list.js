@@ -22,18 +22,13 @@ const main = async (searchFor) => {
             quality: "highestaudio"
         }).pipe(dl);
 
-        /*
         await dl.on("finish", async () => {
-            dl.close();
-            console.log("Downloded " + title);
-            return true;
-        }); */
 
-        await dl.on("finish", async () => {
             await dl.close();
+            
             await console.log("Downloaded! Converting into mp3...");
 
-                await convert(title, async (out) => {
+            await convert(title, async (out) => {
 
                 if (out == "ERROR") process.exit(1);
 
@@ -58,7 +53,5 @@ const main = async (searchFor) => {
 }
 
 dl_list.forEach((v) => {
-    setTimeout(() => {
-        main(v);
-    }, 2000);
+    await main(v);
 })

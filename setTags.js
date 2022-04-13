@@ -1,4 +1,3 @@
-const axios = require('axios');
 const NodeID3 = require('node-id3');
 const dl_path_mp3 = require('./config.json').dl_path_mp3;
 
