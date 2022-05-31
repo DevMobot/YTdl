@@ -7,8 +7,7 @@ const setTags = require('./setTags');
 const convert = require("./converter");
 const del = require("./del");
 
-const { dl_path_mp4, dl_path_mp3 } = require('./config.json');
-
+const { dl_path_mp4 } = require('./config.json');
 
 const rl = readline.createInterface({
   input: process.stdin,
