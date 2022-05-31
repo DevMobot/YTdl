@@ -27,9 +27,13 @@ const main = async () => {
             await console.log("Downloading " + title);
 
             const dl = fs.createWriteStream(`${dl_path_mp4}` + title + '.mp4');
-
+          
+            let quality = "highest";
+            if (answer.includes("-mp3")) quality = "highestaudio';
+          
             const stream = await ytdl(videoURL,  {
                 highWaterMark: 33554432,
+                quality: quality
             }).pipe(dl);
 
             await dl.on("finish", async () => {
