@@ -29,7 +29,7 @@ const main = async () => {
             const dl = fs.createWriteStream(`${dl_path_mp4}` + title + '.mp4');
           
             let quality = "highest";
-            if (answer.includes("-mp3")) quality = "highestaudio';
+            if (answer.includes("-mp3")) quality = "highestaudio";
           
             const stream = await ytdl(videoURL,  {
                 highWaterMark: 33554432,
@@ -46,7 +46,7 @@ const main = async () => {
 
                         const tags = {
                             artist: results.videos[0].author.name+"".substring(0,29),
-                            album: "YT"
+                            album: "New"
                         }
                         await setTags(title, tags, (o) => { return });
 
