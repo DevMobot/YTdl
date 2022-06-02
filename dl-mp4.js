@@ -45,7 +45,7 @@ const main = async () => {
 
                         const tags = {
                             artist: results.videos[0].author.name+"".substring(0,29),
-                            album: "YT"
+                            album: "New"
                         }
                         await setTags(title, tags, (o) => { return });
 
