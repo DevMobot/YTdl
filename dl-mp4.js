@@ -29,7 +29,7 @@ const main = async () => {
             const dl = fs.createWriteStream(`${dl_path_mp4}` + title + '.mp4');
           
             let quality = "highest";
-            if (answer.includes("-mp3")) quality = "highestaudio';
+            if (answer.includes("-mp3")) quality = "highestaudio";
           
             const stream = await ytdl(videoURL,  {
                 highWaterMark: 33554432,
@@ -39,7 +39,6 @@ const main = async () => {
             await dl.on("finish", async () => {
                 await dl.close();
                 if (answer.includes('-mp3')) {
-                    await console.log("Downloaded! Converting into mp3...");
                     await convert(title, async (out) => {
                         if (out == "ERROR") process.exit(1);
                         await del(title);
